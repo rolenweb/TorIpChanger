@@ -20,3 +20,7 @@ venv/
 
 # py.test coverage
 .coverage
+
+.env
+
+.idea

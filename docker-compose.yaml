@@ -4,8 +4,8 @@ services:
   tor-proxy:
     image: dperson/torproxy
     ports:
-      - "8118:8118"  # Privoxy.
-      - "9051:9051"  # Tor Control.
+      - ${PRIVOXY_PORT}:8118  # Privoxy.
+      - ${TOR_CONTROL}:9051  # Tor Control.
     environment:
       PASSWORD: "tor"
       TOR_ControlPort: "0.0.0.0:9051"
@@ -14,7 +14,7 @@ services:
     build: .
     image: toripchanger
     ports:
-      - "8080:8080"
+      - ${TOR_IP_CHANGER}:8080
     volumes:
       - .:/usr/src/app
     depends_on:
